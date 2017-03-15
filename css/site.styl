@@ -21,6 +21,7 @@ normalize()
 
 // TYPOGRAPHY
 
+@import 'fonts'
 @import 'type'
 
 // ******************************************************
@@ -43,8 +44,8 @@ img
   height: auto
 
 .mobile-only
-  display: initial !important 
-  
+  display: initial !important
+
 .desktop-only
   display: none !important
 
@@ -52,7 +53,7 @@ img
 
 // MEDIA QUERIES
 
-$gutter = 14px 
+$gutter = 14px
 
 $margin-micro = ($gutter / 3)
 $margin-tiny = ($gutter / 2)
@@ -60,7 +61,7 @@ $margin-small = ($gutter)
 $margin-basic = ($gutter * 2)
 $margin-mid = ($gutter * 3.5)
 $margin-large = ($gutter * 5)
-    
+
 $font-size-basic = 12px
 $font-size-extra = 36px
 $font-size-large = 28px
@@ -80,25 +81,25 @@ font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, 
 @media screen and (min-width: 720px)
 
   $gutter = 21px
-  
+
   $margin-micro = ($gutter / 3)
   $margin-tiny = ($gutter / 2)
   $margin-small = ($gutter)
   $margin-basic = ($gutter * 2)
   $margin-mid = ($gutter * 3.5)
   $margin-large = ($gutter * 5)
-  
+
   $font-size-basic = 14px
-  
+
   space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
-  
+
   grid(680px, $gutter, m)
-  
+
   font-size($font-size-basic)
-  
+
   .mobile-only
     display: none !important
-  
+
   @import 'responsive/tablet'
 
 @media screen and (min-width: 1024px)
@@ -111,22 +112,22 @@ font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, 
   $margin-basic = ($gutter * 2)
   $margin-mid = ($gutter * 3.5)
   $margin-large = ($gutter * 5)
-  
+
   $font-size-basic = 16px
 
   grid(1000px, $gutter, l)
-  
+
   space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
-  
+
   font-size($font-size-basic)
-  
+
   .desktop-only
     display: initial !important
 
   @import 'responsive/desktop'
-  
+
 @media screen and (min-width: 1280px)
-  
+
   grid(1200px)
 
 @media screen and (min-width: 1366px)
