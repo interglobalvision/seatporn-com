@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Site title</title>
+    <title>Seatporn</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="description">
+    <meta name="description" content="Carefully hand-picked chairs from All Countries, Cultures and Languages, forming a 24H 7/7 experience, one different chair per second.">
 
     <meta name="twitter:site" value="@">
     <meta property="og:image" content="image.jpg" />
-    <meta property="og:title" content="Page title" />
-    <meta property="og:site_name" content="Site name" />
+    <meta property="og:title" content="Seatporn" />
+    <meta property="og:site_name" content="Seatporn" />
     <meta property="og:type" content="website" />
-    <meta property="og:description" content="Description">
-    <meta name="twitter:card" value="Description">
+    <meta property="og:description" content="Carefully hand-picked chairs from All Countries, Cultures and Languages, forming a 24H 7/7 experience, one different chair per second.">
+    <meta name="twitter:card" value="Carefully hand-picked chairs from All Countries, Cultures and Languages, forming a 24H 7/7 experience, one different chair per second.">
 
     <link rel="icon" href="img/dist/favicon.png">
     <link rel="shortcut" href="img/dist/favicon.ico">
@@ -42,27 +42,63 @@ nope: "js/polyfills/mediaqueries.js"
     <section id="main-container">
 
       <!-- start content -->
-      <header id="header" class="container">
-        <div class="grid-row">
-          <div class="grid-item item-s-12">
-            Header :)
-          </div>
+      <header id="header">
+        <div class="container">
+          <h1 class="u-visuallyhidden">Seatporn</h1>
+          <img src="img/dist/seatporn-logo.svg" id="logo">
         </div>
       </header>
 
+      <div id="loading-screen" class="u-hidden">
+        <svg id="loading-chair" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246 411">
+          <defs><style>.cls-1{fill:none;stroke:#fff;stroke-linejoin:round;stroke-width:5px;}</style></defs>
+          <title>seatporn-loader</title>
+          <g id="Layer_2" data-name="Layer 2">
+            <g id="Layer_1-2" data-name="Layer 1">
+              <polygon class="cls-1" points="83.5 2.5 83.5 165.02 2.5 250.35 2.5 408.5 21.5 408.5 21.5 252.5 83.5 252.5 83.5 319.5 102.5 319.5 102.5 252.5 144.5 252.5 144.5 408.5 162.5 408.5 162.5 250.35 224.5 182.52 224.5 319.5 243.5 319.5 243.5 2.5 83.5 2.5"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+
       <!-- main content -->
-      <main id="main-content" class="container">
-        <div class="grid-row">
-          <div class="grid-item item-s-12">
-            Content
-          </div>
+      <main id="main-content">
+        <div id="image-holder">
+          CHAIR
         </div>
       </main>
 
-      <footer id="footer" class="container">
-        <div class="grid-row">
-          <div class="grid-item item-s-12">
-            Footer
+      <footer id="footer">
+        <div class="container">
+          <div class="grid-row">
+            <div class="grid-item item-s-12 item-m-6 item-l-12 no-gutter">
+              <div class="grid-row">
+                <div class="grid-item item-s-12 item-l-3">
+                  Seatporn is an experiment curated by French industrial designers Edouard Chambellan &amp; Matthieu Plantrou.
+                </div>
+                <div class="grid-item item-s-12 item-l-3">
+                  Carefully hand-picked chairs from All Countries, Cultures and Languages, forming a 24H 7/7 experience, one different chair per second.
+                </div>
+                <div class="grid-item item-s-12 item-l-3">
+                  Think of :
+                  <div id="think-of">a way to be creative when you are lazy.</div>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item item-s-12 item-m-6 item-l-12 no-gutter">
+              <div class="grid-row">
+                <div class="grid-item item-s-12 item-l-3">
+                  We propose 24 hour long exhibits for Museums, Schools, Private events &amp; Weird spaces, using our own transportable immersive system.
+                </div>
+                <div class="grid-item item-s-12 item-l-3">
+                  Get in touch if you want to book us! It’s free, Worldwide!
+                </div>
+                <div class="grid-item item-s-12 item-l-3">
+                  Instagram: <a href="https://instagram.com/seatporn">@seatporn</a><br>
+                  Email: <a href="mailto:hello@seatporn.com">hello@seatporn.com</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
