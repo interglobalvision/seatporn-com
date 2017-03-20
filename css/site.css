@@ -777,7 +777,8 @@ img {
   text-align: center;
 }
 #logo {
-  width: 200px;
+  width: 40%;
+  max-width: 200px;
 }
 #loading-screen {
   position: fixed;
