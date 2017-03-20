@@ -1,0 +1,12 @@
+.footer-item
+  .grid-row
+    height: auto
+    .grid-item, .grid-item:not(:last-child)
+      margin-bottom: 0
+  &:first-child
+    .grid-row
+      .grid-item:first-child
+        margin-bottom: $gutter
+  &:last-child
+    .grid-row
+      align-items: flex-end
