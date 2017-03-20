@@ -50,30 +50,107 @@ img
 
 // ******************************************************
 
+// HEADER
+
+#header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  z-index: 900
+  text-align: center
+
+#logo
+  width: 40%
+  max-width: 200px
+
+// ******************************************************
+
+// LOADING
+
+#loading-screen
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: $color-black
+  z-index: 800
+  animation: hide-loading 5s linear 1
+  animation-fill-mode: forwards
+  pointer-events: none
+
+@keyframes hide-loading
+  0%
+    opacity: 1
+  80%
+    opacity: 1
+  100%
+    opacity: 0
+
+#loading-chair
+  width: 50%
+  height: 50%
+  polygon.cls-1
+    stroke-linecap:round
+    stroke-linejoin:round
+    stroke-dasharray: 1000
+    animation: draw 4s linear infinite
+    animation-fill-mode: forwards
+
+@keyframes draw
+  from
+    stroke-dashoffset: 2000
+  to
+    stroke-dashoffset: 0
+
+// ******************************************************
+
+// MAIN CONTENT
+
+#main-content
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+
+#image-holder
+  height: 90%
+  width: 90%
+  img
+    max-height: 100%
+
+// ******************************************************
+
+// FOOTER
+
+#footer
+  position: absolute
+  top: 100%
+  width: 100%
+  background-color: $color-black
+  color: $color-white
+
+.think-of-item
+  position: absolute
+  opacity: 0
+  &.show
+    opacity: 1
+
+// ******************************************************
+
 // MEDIA QUERIES
 
 $gutter = 14px
 
-$margin-micro = ($gutter / 3)
-$margin-tiny = ($gutter / 2)
-$margin-small = ($gutter)
-$margin-basic = ($gutter * 2)
-$margin-mid = ($gutter * 3.5)
-$margin-large = ($gutter * 5)
-
-$font-size-basic = 12px
-$font-size-extra = 36px
-$font-size-large = 28px
-$font-size-mid = 21px
-$font-size-small = 16px
-$font-size-tiny = 12px
-$font-size-micro = 10px
-
 grid(96%, $gutter, s)
 
-space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
+space-maker(false, false, false, $gutter)
 
-font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, $font-size-small, $font-size-tiny, $font-size-micro)
+$font-size-basic = 16px
+
+font-sizes($font-size-basic)
 
 @import 'responsive/mobile'
 
@@ -81,20 +158,13 @@ font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, 
 
   $gutter = 21px
 
-  $margin-micro = ($gutter / 3)
-  $margin-tiny = ($gutter / 2)
-  $margin-small = ($gutter)
-  $margin-basic = ($gutter * 2)
-  $margin-mid = ($gutter * 3.5)
-  $margin-large = ($gutter * 5)
-
-  $font-size-basic = 14px
-
-  space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
-
   grid(680px, $gutter, m)
 
-  font-size($font-size-basic)
+  space-maker(false, false, false, $gutter)
+
+  $font-size-basic = 21px
+
+  font-sizes($font-size-basic)
 
   .mobile-only
     display: none !important
@@ -105,20 +175,13 @@ font-sizes($font-size-basic, font-size-extra, $font-size-large, $font-size-mid, 
 
   $gutter = 24px
 
-  $margin-micro = ($gutter / 3)
-  $margin-tiny = ($gutter / 2)
-  $margin-small = ($gutter)
-  $margin-basic = ($gutter * 2)
-  $margin-mid = ($gutter * 3.5)
-  $margin-large = ($gutter * 5)
-
-  $font-size-basic = 16px
-
   grid(1000px, $gutter, l)
 
-  space-maker($margin-micro, $margin-tiny, $margin-small, $margin-basic, $margin-mid, $margin-large)
+  space-maker(false, false, false, $gutter)
 
-  font-size($font-size-basic)
+  $font-size-basic = 28px
+
+  font-sizes($font-size-basic)
 
   .desktop-only
     display: initial !important
