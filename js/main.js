@@ -10,6 +10,8 @@ Site = {
       _this.onResize();
     });
 
+    _this.thinkOf();
+
   },
 
   onResize: function() {
@@ -24,6 +26,22 @@ Site = {
       string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
       $(this).html(string);
     });
+  },
+
+  thinkOf: function() {
+    var switchThinkOf = function() {
+      var $currentItem = $('.think-of-item.show');
+
+      $('.think-of-item.show').removeClass('show');
+
+      if ($currentItem.next('.think-of-item').length) {
+        $currentItem.next().addClass('show');
+      } else {
+        $('.think-of-item:first-of-type').addClass('show');
+      }
+    }
+
+    window.setInterval(switchThinkOf, 2000);
   },
 };
 
