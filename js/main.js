@@ -10,9 +10,7 @@ Site = {
       _this.onResize();
     });
 
-    _this.thinkOf();
-
-    _this.Info.init();
+    _this.About.init();
   },
 
   onResize: function() {
@@ -29,6 +27,18 @@ Site = {
     });
   },
 
+
+};
+
+Site.About = {
+  init: function() {
+    var _this = this;
+
+    _this.thinkOf();
+
+    _this.bindClicks();
+  },
+
   thinkOf: function() {
     var switchThinkOf = function() {
       var $currentItem = $('.think-of-item.show');
@@ -43,14 +53,6 @@ Site = {
     }
 
     window.setInterval(switchThinkOf, 2000);
-  },
-};
-
-Site.Info = {
-  init: function() {
-    var _this = this;
-
-    _this.bindClicks();
   },
 
   bindClicks: function() {
