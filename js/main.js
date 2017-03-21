@@ -12,6 +12,7 @@ Site = {
 
     _this.thinkOf();
 
+    _this.Info.init();
   },
 
   onResize: function() {
@@ -44,6 +45,31 @@ Site = {
     window.setInterval(switchThinkOf, 2000);
   },
 };
+
+Site.Info = {
+  init: function() {
+    var _this = this;
+
+    _this.bindClicks();
+  },
+
+  bindClicks: function() {
+    var _this = this;
+
+    $('#info-button').on('click', function() {
+      $('html, body').animate({
+        scrollTop: $(document).height() - $(window).height()
+      });
+    });
+
+    $('#image-holder').on('click', function() {
+      $('html, body').animate({
+        scrollTop: 0
+      });
+    });
+  },
+
+},
 
 jQuery(document).ready(function () {
   'use strict';
