@@ -821,6 +821,9 @@ img {
 #image-holder img {
   max-height: 100%;
 }
+#info-button {
+  position: absolute;
+}
 #footer {
   position: absolute;
   top: 100%;
@@ -1046,6 +1049,11 @@ html,
 .font-size-basic {
   font-size: 16px;
 }
+#info-button {
+  width: 14px;
+  bottom: 14px;
+  right: 14px;
+}
 .footer-item .grid-row .grid-item {
   margin-bottom: 14px;
 }
@@ -1264,6 +1272,11 @@ html,
   }
   .mobile-only {
     display: none !important;
+  }
+  #info-button {
+    width: 21px;
+    bottom: 21px;
+    right: 21px;
   }
   .footer-item .grid-row {
     height: 100%;
@@ -1491,6 +1504,11 @@ html,
   }
   .desktop-only {
     display: initial !important;
+  }
+  #info-button {
+    width: 24px;
+    bottom: 24px;
+    right: 24px;
   }
   .footer-item .grid-row {
     height: auto;
