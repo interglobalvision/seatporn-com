@@ -10,8 +10,7 @@ Site = {
       _this.onResize();
     });
 
-    _this.thinkOf();
-
+    _this.About.init();
   },
 
   onResize: function() {
@@ -26,6 +25,18 @@ Site = {
       string = string.replace(/ ([^ ]*)$/,'&nbsp;$1');
       $(this).html(string);
     });
+  },
+
+
+};
+
+Site.About = {
+  init: function() {
+    var _this = this;
+
+    _this.thinkOf();
+
+    _this.bindClicks();
   },
 
   thinkOf: function() {
@@ -43,7 +54,24 @@ Site = {
 
     window.setInterval(switchThinkOf, 2000);
   },
-};
+
+  bindClicks: function() {
+    var _this = this;
+
+    $('#info-button').on('click', function() {
+      $('html, body').animate({
+        scrollTop: $(document).height() - $(window).height()
+      });
+    });
+
+    $('#image-holder').on('click', function() {
+      $('html, body').animate({
+        scrollTop: 0
+      });
+    });
+  },
+
+},
 
 jQuery(document).ready(function () {
   'use strict';
