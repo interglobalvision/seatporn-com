@@ -67,6 +67,8 @@ img
 // ******************************************************
 
 // LOADING
+.hide
+  opacity: 0
 
 #loading-screen
   position: fixed
@@ -76,17 +78,9 @@ img
   height: 100vh
   background-color: $color-black
   z-index: 800
-  animation: hide-loading 5s linear 1
   animation-fill-mode: forwards
   pointer-events: none
-
-@keyframes hide-loading
-  0%
-    opacity: 1
-  80%
-    opacity: 1
-  100%
-    opacity: 0
+  transition: opacity 1s ease-in-out
 
 #loading-chair
   width: 50%
@@ -97,6 +91,7 @@ img
     stroke-dasharray: 1000
     animation: draw 4s linear infinite
     animation-fill-mode: forwards
+  transition: opacity 1s ease-in-out
 
 @keyframes draw
   from
@@ -107,17 +102,23 @@ img
 // ******************************************************
 
 // MAIN CONTENT
-
 #main-content
+  width: 100%
+  height: 100vh
+
+#images-container
   position: fixed
   top: 0
   left: 0
   width: 100%
   height: 100vh
+  will-change: contents
 
-#image-holder
-  height: 90%
-  width: 90%
+.image-holder
+  height: 100%
+  width: 100%
+  padding: 5%
+
   img
     max-height: 100%
 
