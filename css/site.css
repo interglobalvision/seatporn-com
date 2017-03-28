@@ -780,6 +780,11 @@ img {
   width: 40%;
   max-width: 200px;
 }
+.hide {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
 #loading-screen {
   position: fixed;
   top: 0;
@@ -788,15 +793,15 @@ img {
   height: 100vh;
   background-color: #000;
   z-index: 800;
-  -webkit-animation: hide-loading 5s linear 1;
-  animation: hide-loading 5s linear 1;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   pointer-events: none;
+  transition: opacity 1s ease-in-out;
 }
 #loading-chair {
   width: 50%;
   height: 50%;
+  transition: opacity 1s ease-in-out;
 }
 #loading-chair polygon.cls-1 {
   stroke-linecap: round;
@@ -808,17 +813,23 @@ img {
   animation-fill-mode: forwards;
 }
 #main-content {
+  width: 100%;
+  height: 100vh;
+}
+#images-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
+  will-change: contents;
 }
-#image-holder {
-  height: 90%;
-  width: 90%;
+.image-holder {
+  height: 100%;
+  width: 100%;
+  padding: 5%;
 }
-#image-holder img {
+.image-holder img {
   max-height: 100%;
 }
 #info-button {
@@ -1546,44 +1557,6 @@ html,
 @media screen and (min-width: 1920px) {
   .container {
     width: 1800px;
-  }
-}
-@-webkit-keyframes hide-loading {
-  0% {
-    -ms-filter: none;
-    -webkit-filter: none;
-            filter: none;
-    opacity: 1;
-  }
-  80% {
-    -ms-filter: none;
-    -webkit-filter: none;
-            filter: none;
-    opacity: 1;
-  }
-  100% {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    opacity: 0;
-  }
-}
-@keyframes hide-loading {
-  0% {
-    -ms-filter: none;
-    -webkit-filter: none;
-            filter: none;
-    opacity: 1;
-  }
-  80% {
-    -ms-filter: none;
-    -webkit-filter: none;
-            filter: none;
-    opacity: 1;
-  }
-  100% {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    opacity: 0;
   }
 }
 @-webkit-keyframes draw {
