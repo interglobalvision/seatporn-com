@@ -37,7 +37,7 @@ Site = {
 
 Site.Chairs = {
   tail: [],
-  tailSize: 6,
+  tailSize: 9,
   // listSize: 86400, // = 24hrs
    listSize: 120, // USE THIS FOR DEV
   bufferTime: 3000, // in ms
@@ -70,7 +70,7 @@ Site.Chairs = {
     }
 
     var top = list.length;
-    if(top) {
+    if (top) {
       while(--top) {
         var current = Math.floor(Math.random() * (top + 1));
         var tmp = list[current];
@@ -86,23 +86,23 @@ Site.Chairs = {
     var _this = this;
 
     _this.loadTail();
-    _this.loadImages();
+    _this.appendImages();
     _this.triggerTimer();
   },
 
   loadTail: function() {
     var _this = this;
 
-    for(var i = 0; i <= _this.tailSize; i++) {
+    for (var i = 0; i <= _this.tailSize; i++) {
       _this.tail[i] = _this.list[i + _this.currentPosition];
     }
   },
 
-  loadImages: function() {
+  appendImages: function() {
     var _this = this;
 
-    for(var image of _this.tail) {
-      _this.imagesContainer.append(_this.generateImage(image));
+    for (var i = 0; i < _this.tail.length; i++) {
+      _this.imagesContainer.append(_this.generateImage(_this.tail[i]));
     }
   },
 
