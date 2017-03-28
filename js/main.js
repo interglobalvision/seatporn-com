@@ -38,20 +38,28 @@ Site = {
 Site.Chairs = {
   tail: [],
   tailSize: 9,
-  // listSize: 86400, // = 24hrs
-   listSize: 120, // USE THIS FOR DEV
-  bufferTime: 3000, // in ms
+  listSize: 86400, // = 24hrs
+  bufferTime: 4000, // in ms
   imgDirPath: '/chairs/',
   init: function() {
     var _this = this;
 
     _this.imagesContainer = document.querySelector('#images-container');
 
-    // _this.currentPosition = _this.getSecsToday + _this.bufferTime;
-    _this.currentPosition = 3; // USE THIS FOR DEV
+    _this.currentPosition = _this.getSecsToday() + _this.bufferTime;
+
+    if (_this.isDev()) {
+      _this.listSize = 120;
+      _this.currentPosition = 3;
+    }
+
 
     _this.getList();
     _this.initTail();
+  },
+
+  isDev: function() {
+    return location.hash === '#dev' ? true : false;
   },
 
   getList: function() {
