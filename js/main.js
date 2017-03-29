@@ -65,7 +65,20 @@ Site.Chairs = {
   getList: function() {
     var _this = this;
 
-    _this.list = _this.generateRandomList();
+    var list = localStorage.getItem('chairsList');
+
+    if (list === null) {
+      _this.list = _this.generateRandomList();
+      _this.saveList();
+    } else {
+      _this.list = JSON.parse(list);
+    }
+  },
+
+  saveList: function() {
+    var _this = this;
+
+    return localStorage.setItem('chairsList', JSON.stringify(_this.list));
   },
 
   generateRandomList: function() {
