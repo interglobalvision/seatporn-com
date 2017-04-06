@@ -40,7 +40,7 @@ Site.Chairs = {
   tailSize: 9,
   listSize: 86400, // = 24hrs
   bufferTime: 4000, // in ms
-  imgDirPath: '/chairs/',
+  imgDirPath: '/dev_chairs/',
   init: function() {
     var _this = this;
 
