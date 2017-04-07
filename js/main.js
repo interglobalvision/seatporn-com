@@ -39,7 +39,7 @@ Site.Chairs = {
   tail: [],
   tailSize: 9,
   listSize: 86400, // = 24hrs
-  bufferTime: 4000, // in ms
+  bufferTime: 4, // in seconds
   imgDirPath: '/dev_chairs/',
   init: function() {
     var _this = this;
@@ -134,7 +134,7 @@ Site.Chairs = {
       setInterval(_this.nextChair.bind(_this), 1000);
 
       Site.hideLoading();
-    }, _this.bufferTime);
+    }, _this.bufferTime * 1000);
 
   },
 
