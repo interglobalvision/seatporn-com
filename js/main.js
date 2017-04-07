@@ -49,62 +49,15 @@ Site.Chairs = {
     _this.currentPosition = _this.getSecsToday() + _this.bufferTime;
 
     if (_this.isDev()) {
-      _this.listSize = 120;
       _this.currentPosition = 3;
     }
 
-
-    _this.getList();
     _this.initTail();
   },
 
   isDev: function() {
     return location.hash === '#dev' ? true : false;
   },
-
-  getList: function() {
-    var _this = this;
-
-    var list = localStorage.getItem('chairsList');
-
-    if (list === null) {
-      _this.list = _this.generateRandomList();
-    } else {
-      _this.list = JSON.parse(list);
-    }
-  },
-
-  generateRandomList: function() {
-    var _this = this;
-
-    var list = [];
-
-    for (var i = 0; i < _this.listSize; i++) {
-      list[i] = i + 1;
-    }
-
-    var top = list.length;
-    if (top) {
-      while(--top) {
-        var current = Math.floor(Math.random() * (top + 1));
-        var tmp = list[current];
-        list[current] = list[top];
-        list[top] = tmp;
-      }
-    }
-
-    // Save list on localStorage
-    _this.saveList(list);
-
-    return list;
-  },
-
-  saveList: function(list) {
-    var _this = this;
-
-    return localStorage.setItem('chairsList', JSON.stringify(list));
-  },
-
 
   initTail: function() {
     var _this = this;
@@ -118,7 +71,7 @@ Site.Chairs = {
     var _this = this;
 
     for (var i = 0; i <= _this.tailSize; i++) {
-      _this.tail[i] = _this.list[i + _this.currentPosition];
+      _this.tail[i] = i + _this.currentPosition;
     }
   },
 
@@ -148,7 +101,7 @@ Site.Chairs = {
   pushChair: function() {
     var _this = this;
 
-    var image = _this.list[_this.currentPosition + _this.tailSize - 1];
+    var image = _this.currentPosition + _this.tailSize - 1;
     _this.imagesContainer.append(_this.generateImage(image));
   },
 
