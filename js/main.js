@@ -49,7 +49,8 @@ Site.Chairs = {
     _this.currentPosition = _this.getSecsToday() + _this.bufferTime;
 
     if (_this.isDev()) {
-      _this.currentPosition = 3;
+      _this.currentPosition = 1;
+      _this.listSize = 120;
     }
 
     _this.initTail();
@@ -87,6 +88,10 @@ Site.Chairs = {
     var _this = this;
 
     _this.currentPosition += 1;
+
+    if( _this.currentPosition > _this.listSize ) {
+      _this.currentPosition = 1;
+    }
 
     _this.shiftChair();
     _this.pushChair();
