@@ -243,7 +243,7 @@ Site.About = {
       });
     });
 
-    $('#image-holder').on('click', function() {
+    $('.image-holder').on('click', function() {
       $('html, body').animate({
         scrollTop: 0
       });
