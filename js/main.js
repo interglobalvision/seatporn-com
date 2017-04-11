@@ -157,6 +157,8 @@ Site.Chairs = {
 
     image.setAttribute('src', _this.imgDirPath + filename);
 
+    imageHolder.appendChild(image);
+
     return imageHolder;
   },
 
