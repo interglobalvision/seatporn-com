@@ -40,7 +40,7 @@ Site.Chairs = {
   tailSize: 9,
   listSize: 86400, // = 24hrs
   bufferTime: 4, // in seconds
-  imgDirPath: 'https://s3.amazonaws.com/seatporn/chairs/',
+  imgDirPath: 'http://d1r8hiz683c1rx.cloudfront.net/',
   init: function() {
     var _this = this;
 
