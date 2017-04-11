@@ -40,7 +40,7 @@ Site.Chairs = {
   tailSize: 9,
   listSize: 86400, // = 24hrs
   bufferTime: 4, // in seconds
-  imgDirPath: '/dev_chairs/',
+  imgDirPath: 'https://s3.amazonaws.com/seatporn/chairs/',
   init: function() {
     var _this = this;
 
@@ -51,6 +51,7 @@ Site.Chairs = {
     if (_this.isDev()) {
       _this.currentPosition = 1;
       _this.listSize = 120;
+      _this.imgDirPath = '/dev_chairs/';
     }
 
     _this.initTail();
