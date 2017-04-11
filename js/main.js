@@ -89,6 +89,10 @@ Site.Chairs = {
 
     _this.currentPosition = _this.getSecsToday();
 
+    if (_this.isDev()) {
+      _this.currentPosition = 60;
+    }
+
     _this.clearChairs()
     _this.loadTail();
     _this.appendImages();
