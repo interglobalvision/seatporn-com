@@ -54,10 +54,27 @@ Site.Chairs = {
     }
 
     _this.initTail();
+    _this.bind();
   },
 
   isDev: function() {
     return location.hash === '#dev' ? true : false;
+  },
+
+  bind: function() {
+    var _this = this;
+
+    document.addEventListener("visibilitychange", _this.handleVisibilityChange.bind(_this), false);
+  },
+
+  handleVisibilityChange: function() {
+    var _this = this;
+
+    if (document.hidden) { // INACTIVE TAB
+      clearInterval(_this.interval);
+    } else { // ACTIVE TAB
+      _this.reinitTail();
+    }
   },
 
   initTail: function() {
@@ -65,7 +82,22 @@ Site.Chairs = {
 
     _this.loadTail();
     _this.appendImages();
-    _this.triggerTimer();
+    _this.triggerTimer(_this.bufferTime * 1000);
+  },
+
+  reinitTail: function() {
+    var _this = this;
+
+    _this.currentPosition = _this.getSecsToday();
+
+    if (_this.isDev()) {
+      _this.currentPosition = 60;
+    }
+
+    _this.clearChairs()
+    _this.loadTail();
+    _this.appendImages();
+    _this.triggerTimer(0);
   },
 
   loadTail: function() {
@@ -103,10 +135,16 @@ Site.Chairs = {
     $('.image-holder').first().remove();
   },
 
+  clearChairs: function() {
+    var _this = this;
+
+    $('.image-holder').remove();
+  },
+
   pushChair: function() {
     var _this = this;
 
-    var image = _this.currentPosition + _this.tailSize - 1;
+    var image = _this.currentPosition + _this.tailSize;
     _this.imagesContainer.append(_this.generateImage(image));
   },
 
@@ -124,6 +162,7 @@ Site.Chairs = {
     var image = document.createElement('img');
 
     imageHolder.className = 'image-holder grid-row justify-center align-items-center';
+    imageHolder.id = 'image-' + base;
 
     image.setAttribute('src', _this.imgDirPath + filename);
 
@@ -132,14 +171,14 @@ Site.Chairs = {
     return imageHolder;
   },
 
-  triggerTimer: function() {
+  triggerTimer: function(delay) {
     var _this = this;
 
     setTimeout(function() {
-      setInterval(_this.nextChair.bind(_this), 1000);
+      _this.interval = setInterval(_this.nextChair.bind(_this), 1000);
 
       Site.hideLoading();
-    }, _this.bufferTime * 1000);
+    }, delay);
 
   },
 
