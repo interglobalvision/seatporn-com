@@ -39,6 +39,7 @@ Site.Chairs = {
   tail: [],
   tailSize: 9,
   listSize: 86400, // = 24hrs
+  devListSize: 120, // = 2mins
   bufferTime: 4, // in seconds
   imgDirPath: 'http://d1r8hiz683c1rx.cloudfront.net/',
   init: function() {
@@ -120,7 +121,11 @@ Site.Chairs = {
   nextChair: function() {
     var _this = this;
 
-    _this.currentPosition += 1;
+    if (_this.isDev() && _this.currentPosition >= _this.devListSize) {
+      _this.currentPosition = 1;
+    } else {
+      _this.currentPosition += 1;
+    }
 
     if( _this.currentPosition > _this.listSize ) {
       _this.currentPosition = 1;
