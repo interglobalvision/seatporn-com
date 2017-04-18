@@ -115,9 +115,12 @@ img
   will-change: contents
 
 .image-holder
+  display: none
   height: 100%
   width: 100%
   padding: 5vh 5vw
+  &:first-child
+    display: flex
 
   img
     max-height: 100%

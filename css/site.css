@@ -825,9 +825,15 @@ img {
   will-change: contents;
 }
 .image-holder {
+  display: none;
   height: 100%;
   width: 100%;
   padding: 5vh 5vw;
+}
+.image-holder:first-child {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .image-holder img {
   max-height: 100%;
