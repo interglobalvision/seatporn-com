@@ -46,7 +46,7 @@ Site.Chairs = {
   init: function() {
     var _this = this;
 
-    _this.imagesContainer = document.querySelector('#images-container');
+    _this.$imagesContainer = $('#images-container');
 
     _this.currentPosition = _this.getSecsToday() + _this.bufferTime;
 
@@ -116,7 +116,7 @@ Site.Chairs = {
     var _this = this;
 
     for (var i = 0; i < _this.tail.length; i++) {
-      _this.imagesContainer.append(_this.generateImage(_this.tail[i]));
+      _this.$imagesContainer.append(_this.generateImage(_this.tail[i]));
     }
   },
 
@@ -186,7 +186,7 @@ Site.Chairs = {
     var _this = this;
 
     var image = _this.currentPosition + _this.tailSize;
-    _this.imagesContainer.append(_this.generateImage(image));
+    _this.$imagesContainer.append(_this.generateImage(image));
   },
 
   formatName: function(base) {
@@ -272,7 +272,7 @@ Site.About = {
       });
     });
 
-    $('.image-holder').on('click', function() {
+    $('#images-container').on('click', function() {
       $('html, body').animate({
         scrollTop: 0
       });
