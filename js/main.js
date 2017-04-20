@@ -268,13 +268,13 @@ Site.About = {
 
     $('#info-button').on('click', function() {
       $('html, body').animate({
-        scrollTop: $(document).height() - $(window).height()
+          scrollTop: $(document).height() - $('#footer').outerHeight(true),
       });
     });
 
     $('#images-container').on('click', function() {
       $('html, body').animate({
-        scrollTop: 0
+        scrollTop: 0,
       });
     });
   },
