@@ -268,21 +268,22 @@ Site.About = {
 
     $('#info-button').on('click', function() {
       var windowHeight = $(window).height();
+      var documentHeight = $(document).height();
       var footerHeight = $('#footer').outerHeight(true);
 
       if (windowHeight > footerHeight) {
-        var footerTop = windowHeight - footerHeight;
+        var footerTop = documentHeight - windowHeight;
       } else {
-        var footerTop = footerHeight - windowHeight;
+        var footerTop = documentHeight - footerHeight;
       }
 
-      $('body').animate({
+      $('html, body').animate({
           scrollTop: footerTop,
       });
     });
 
     $('#images-container').on('click', function() {
-      $('body').animate({
+      $('html, body').animate({
         scrollTop: 0,
       });
     });
