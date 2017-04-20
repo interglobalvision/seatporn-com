@@ -267,18 +267,8 @@ Site.About = {
     var _this = this;
 
     $('#info-button').on('click', function() {
-      var windowHeight = $(window).height();
-      var documentHeight = $(document).height();
-      var footerHeight = $('#footer').outerHeight(true);
-
-      if (windowHeight > footerHeight) {
-        var footerTop = documentHeight - windowHeight;
-      } else {
-        var footerTop = documentHeight - footerHeight;
-      }
-
       $('html, body').animate({
-          scrollTop: footerTop,
+          scrollTop: $(document).height() - $('#footer').outerHeight(true),
       });
     });
 
