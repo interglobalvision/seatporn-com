@@ -186,7 +186,7 @@ Site.Chairs = {
     var _this = this;
 
     var image = _this.currentPosition + _this.tailSize;
-    _this.imagesContainer.append(_this.generateImage(image));
+    _this.$imagesContainer.append(_this.generateImage(image));
   },
 
   formatName: function(base) {
@@ -272,7 +272,7 @@ Site.About = {
       });
     });
 
-    $('.image-holder').on('click', function() {
+    $('#images-container').on('click', function() {
       $('html, body').animate({
         scrollTop: 0
       });
