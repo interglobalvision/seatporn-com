@@ -267,14 +267,23 @@ Site.About = {
     var _this = this;
 
     $('#info-button').on('click', function() {
-      $('html, body').animate({
-        scrollTop: $(document).height() - $(window).height()
+      var windowHeight = $(window).height();
+      var footerHeight = $('#footer').outerHeight(true);
+
+      if (windowHeight > footerHeight) {
+        var footerTop = windowHeight - footerHeight;
+      } else {
+        var footerTop = footerHeight - windowHeight;
+      }
+
+      $('body').animate({
+          scrollTop: footerTop,
       });
     });
 
     $('#images-container').on('click', function() {
-      $('html, body').animate({
-        scrollTop: 0
+      $('body').animate({
+        scrollTop: 0,
       });
     });
   },
