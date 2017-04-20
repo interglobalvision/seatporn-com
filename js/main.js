@@ -142,7 +142,6 @@ Site.Chairs = {
     }
 
     if (_this.passedASecond(currentDate)) {
-      console.log(currentDate - _this.lastChairTime);
       _this.currentPosition += 1;
 
       if( _this.currentPosition > _this.listSize ) {
