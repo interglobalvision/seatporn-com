@@ -41,6 +41,8 @@ Site.Chairs = {
   listSize: 86400, // = 24hrs
   bufferTime: 4, // in seconds
   imgDirPath: 'http://d1r8hiz683c1rx.cloudfront.net/',
+  lastChairTime: null,
+  stop: false,
   init: function() {
     var _this = this;
 
@@ -72,7 +74,7 @@ Site.Chairs = {
     var _this = this;
 
     if (document.hidden) { // INACTIVE TAB
-      clearInterval(_this.interval);
+      _this.stop = true;
     } else { // ACTIVE TAB
       _this.reinitTail();
     }
@@ -89,6 +91,7 @@ Site.Chairs = {
   reinitTail: function() {
     var _this = this;
 
+    _this.stop = false;
     _this.currentPosition = _this.getSecsToday();
 
     if (_this.isDev()) {
@@ -117,17 +120,54 @@ Site.Chairs = {
     }
   },
 
+  triggerTimer: function(delay) {
+    var _this = this;
+
+    setTimeout(function() {
+
+      window.requestAnimationFrame(_this.nextChair.bind(_this));
+
+      Site.hideLoading();
+    }, delay);
+
+  },
+
   nextChair: function() {
     var _this = this;
 
-    _this.currentPosition += 1;
+    var currentDate = +new Date;
 
-    if( _this.currentPosition > _this.listSize ) {
-      _this.currentPosition = 1;
+    if (_this.lastChairTime === null) {
+      _this.lastChairTime = currentDate;
     }
 
-    _this.shiftChair();
-    _this.pushChair();
+    if (_this.passedASecond(currentDate)) {
+      _this.currentPosition += 1;
+
+      if( _this.currentPosition > _this.listSize ) {
+        _this.currentPosition = 1;
+      }
+
+      _this.shiftChair();
+      _this.pushChair();
+      _this.lastChairTime = currentDate;
+    }
+
+    if(!_this.stop) {
+      window.requestAnimationFrame(_this.nextChair.bind(_this));
+    }
+
+  },
+
+  passedASecond: function(currentDate) {
+    var _this = this;
+
+    if(currentDate - _this.lastChairTime >= 1000) {
+      return true;
+    }
+
+    return false;
+
   },
 
   shiftChair: function() {
@@ -170,17 +210,6 @@ Site.Chairs = {
     imageHolder.appendChild(image);
 
     return imageHolder;
-  },
-
-  triggerTimer: function(delay) {
-    var _this = this;
-
-    setTimeout(function() {
-      _this.interval = setInterval(_this.nextChair.bind(_this), 1000);
-
-      Site.hideLoading();
-    }, delay);
-
   },
 
   // Return number of seconds since last midnight
